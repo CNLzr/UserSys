@@ -1,0 +1,29 @@
+<configuration>
+    <!-- 将日志输出到指定位置
+        ConsoleAppender 控制台
+     -->
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%logger{35} line:%L - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <!-- 全局设置记录日志的级别
+         debug 将程序中所有的日志信息都显示、打印、记录
+         info  在项目生产时(部署、运行)使用的级别
+         warn  记录警告信息
+         error 记录错误信息
+         级别从上往下依次升高
+     -->
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+    <!-- 指定日志输出级别 additivity=false 避免日志重复打印-->
+    <logger name="com.lzr.mapper" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <!-- 过滤无用的日志 -->
+    <logger name="org.apache.ibatis.io" level="info">
+        <appender-ref ref="STDOUT" />
+    </logger>
+</configuration>
