@@ -15,4 +15,15 @@
     <insert id="addUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into users(loginId,loginPwd,`name`,email, age) values(#{loginId}, #{loginPwd},#{name},#{email},#{age})
     </insert>
+
+    <select id="getUserByLoginId" resultMap="users_id_map">
+        select * from users where loginId = #{id}
+    </select>
+    <resultMap id="users_id_map" type="User">
+        <result column="loginId" property="loginId"></result>
+        <result column="loginPwd" property="loginPwd"></result>
+        <result column="name" property="name"></result>
+        <result column="email" property="email"></result>
+        <result column="age" property="age"></result>
+    </resultMap>
 </mapper>

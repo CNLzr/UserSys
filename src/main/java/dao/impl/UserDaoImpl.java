@@ -18,7 +18,6 @@ public class UserDaoImpl implements UserDao {
      */
     private static UserDao userDao;
     private static SqlSession sqlSession;
-    // 加载Dao层类时,加载Mybatis,并获取sqlSession对象
     static {
         try {
             InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
@@ -29,31 +28,23 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
     }
-
-    /**
-     * 获取用户列表
-     * @return 用户集合
-     */
     @Override
     public boolean addUser(User user) {
         try {
             userDao.addUser(user);
             sqlSession.commit();
-            sqlSession.close();
             return true;
         }catch (Exception e){
             e.printStackTrace();
         }
         return false;
     }
-
     @Override
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
-
     @Override
     public User getUserByLoginId(String loginId) {
-        return null;
+        return userDao.getUserByLoginId(loginId);
     }
 }

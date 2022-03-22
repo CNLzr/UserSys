@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
     private Integer id;
@@ -16,8 +15,15 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String age;
-
     public User(String loginId, String loginPwd, String name, String email, String age) {
+        this.loginId = loginId;
+        this.loginPwd = loginPwd;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+    public User(Integer id, String loginId, String loginPwd, String name, String email, String age) {
+        this.id = id;
         this.loginId = loginId;
         this.loginPwd = loginPwd;
         this.name = name;
