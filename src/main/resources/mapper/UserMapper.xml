@@ -5,7 +5,6 @@
         select * from users
     </select>
     <resultMap id="users_map" type="User">
-        <id column="id" property="id"></id>
         <result column="loginId" property="loginId"></result>
         <result column="loginPwd" property="loginPwd"></result>
         <result column="name" property="name"></result>
