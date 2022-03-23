@@ -1,34 +1,35 @@
 package service.impl;
 
 import dao.UserDao;
-import dao.impl.UserDaoImpl;
 import entity.User;
+import org.apache.ibatis.session.SqlSession;
 import service.UserService;
 import util.MybatisUtil;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private UserDao userDao = MybatisUtil.getSqlSession().getMapper(UserDao.class);
 
     @Override
     public boolean addUser(User user) {
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        userDao.addUser(user);
+        sqlSession.commit();
         return userDao.addUser(user);
     }
 
     @Override
     public List<User> getAllUsers() {
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
         return userDao.getAllUsers();
     }
 
-    /**
-     * 根据登录名和登录密码进行登录
-     * @param loginId  登录名称
-     * @param loginPwd 登录密码
-     * @return 登录结果：1:成功;2:登录错误;3:用户名不存在
-     */
     @Override
     public int login(String loginId, String loginPwd) {
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
         User user = userDao.getUserByLoginId(loginId);
         // 判断用户是否存在
         if(user == null){
