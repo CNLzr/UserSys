@@ -17,7 +17,7 @@
     </insert>
 
     <select id="getUserByLoginId" resultMap="users_id_map">
-        select * from users where loginId = #{id}
+        select * from users where loginId = #{loginId}
     </select>
     <resultMap id="users_id_map" type="User">
         <result column="loginId" property="loginId"></result>

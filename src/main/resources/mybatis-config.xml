@@ -22,7 +22,7 @@
         </environment>
     </environments>
     <mappers>
-<!--        <package name="lzr.mapper"/>-->
-        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <package name="mapper"/>
+<!--        <mapper resource="mapper/UserMapper.xml"></mapper>-->
     </mappers>
 </configuration>

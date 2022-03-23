@@ -4,11 +4,12 @@ import dao.UserDao;
 import dao.impl.UserDaoImpl;
 import entity.User;
 import service.UserService;
+import util.MybatisUtil;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = MybatisUtil.getSqlSession().getMapper(UserDao.class);
 
     @Override
     public boolean addUser(User user) {
