@@ -1,8 +1,8 @@
-package servlet;
+package com.lzr.usersys.servlet;
 
-import entity.User;
-import service.UserService;
-import service.impl.UserServiceImpl;
+import com.lzr.usersys.entity.User;
+import com.lzr.usersys.service.UserService;
+import com.lzr.usersys.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

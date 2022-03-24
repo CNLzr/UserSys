@@ -1,10 +1,10 @@
-package service.impl;
+package com.lzr.usersys.service.impl;
 
-import dao.UserDao;
-import entity.User;
+import com.lzr.usersys.entity.User;
+import com.lzr.usersys.mapper.UserMapper;
+import com.lzr.usersys.service.UserService;
+import com.lzr.usersys.util.MybatisUtil;
 import org.apache.ibatis.session.SqlSession;
-import service.UserService;
-import util.MybatisUtil;
 
 import java.util.List;
 
@@ -13,24 +13,24 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean addUser(User user) {
         SqlSession sqlSession = MybatisUtil.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        userDao.addUser(user);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.addUser(user);
         sqlSession.commit();
-        return userDao.addUser(user);
+        return userMapper.addUser(user);
     }
 
     @Override
     public List<User> getAllUsers() {
         SqlSession sqlSession = MybatisUtil.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        return userDao.getAllUsers();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        return userMapper.getAllUsers();
     }
 
     @Override
     public int login(String loginId, String loginPwd) {
         SqlSession sqlSession = MybatisUtil.getSqlSession();
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        User user = userDao.getUserByLoginId(loginId);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.getUserByLoginId(loginId);
         // 判断用户是否存在
         if(user == null){
             return 3;

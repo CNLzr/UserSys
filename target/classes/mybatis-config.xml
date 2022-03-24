@@ -5,7 +5,7 @@
 <configuration>
     <properties resource="db.properties"></properties>
     <typeAliases>
-        <package name="entity"></package>
+        <package name="com.lzr.usersys.entity"></package>
     </typeAliases>
 <!--    <plugins>-->
 <!--        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>-->
@@ -22,7 +22,7 @@
         </environment>
     </environments>
     <mappers>
-<!--        <package name="mapper"/>-->
-        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <package name="com.lzr.usersys.mapper"/>
+<!--        <mapper resource="mapper/UserMapper.xml"></mapper>-->
     </mappers>
 </configuration>

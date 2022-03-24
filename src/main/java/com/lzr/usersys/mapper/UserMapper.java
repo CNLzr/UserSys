@@ -1,10 +1,11 @@
-package dao;
-import entity.User;
+package com.lzr.usersys.mapper;
+
+import com.lzr.usersys.entity.User;
 
 import java.util.List;
 
 
-public interface UserDao {
+public interface UserMapper {
     /**
      * 添加用户功能
      * @param user 用户对象

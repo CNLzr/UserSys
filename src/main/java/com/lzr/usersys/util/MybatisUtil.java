@@ -1,4 +1,4 @@
-package util;
+package com.lzr.usersys.util;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -20,16 +20,12 @@ public class MybatisUtil {
         }
     }
     private MybatisUtil() {
-    }
 
+    }
     public static SqlSessionFactory getSqlSessionFactory(){
         return sqlSessionFactory;
     }
 
-    /**
-     * 获取SqlSession
-     * @return
-     */
     public static SqlSession getSqlSession(){
         SqlSession sqlSession = threadLocal.get();
         if(sqlSession == null){
@@ -38,7 +34,6 @@ public class MybatisUtil {
         }
         return  sqlSession;
     }
-
     public static void closeSqlSession(){
         SqlSession sqlSession = threadLocal.get();
         if(sqlSession != null){

@@ -1,6 +1,6 @@
-package service;
+package com.lzr.usersys.service;
 
-import entity.User;
+import com.lzr.usersys.entity.User;
 
 import java.util.List;
 
@@ -24,5 +24,5 @@ public interface UserService {
      * @param loginPwd 登录密码
      * @return 登录结果：1:成功;2:登录错误;3:用户名不存在
      */
-    int login(String loginId,String loginPwd);
+    int login(String loginId, String loginPwd);
 }
