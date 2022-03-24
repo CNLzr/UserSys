@@ -25,4 +25,6 @@ public interface UserService {
      * @return 登录结果：1:成功;2:登录错误;3:用户名不存在
      */
     int login(String loginId, String loginPwd);
+
+    boolean registerUser(User user);
 }

@@ -20,6 +20,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean registerUser(User user){
+        SqlSession sqlSession = MybatisUtil.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        if(userMapper.getUserByLoginId(user.getLoginId()) != null){
+            return false;
+        }
+        return userMapper.addUser(user);
+    }
+
+    @Override
     public List<User> getAllUsers() {
         SqlSession sqlSession = MybatisUtil.getSqlSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);

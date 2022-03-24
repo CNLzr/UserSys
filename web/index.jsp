@@ -17,6 +17,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+    <a href="login.html">登录</a>
+    <a href="register.html">注册</a>
   </body>
 </html>

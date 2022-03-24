@@ -27,10 +27,11 @@ public class UserRegisterServlet extends HttpServlet {
         String email = req.getParameter("email");
         String age = req.getParameter("age");
         User user = new User(loginId,loginPwd,name,email,age);
-        if(userService.addUser(user)){
-            writer.print("<h1>数据插入用户成功</h1>");
+        if(userService.registerUser(user)){
+            writer.print("<h1>用户注册成功</h1>");
         }else {
-            writer.print("<h1>数据插入用户失败</h1");
+            writer.print("<h1>用户名已存在</h1");
+            writer.print("<h1>用户注册失败</h1");
         }
         writer.close();
     }
